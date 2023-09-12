@@ -1,0 +1,24 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: nest-app-ingress
+  annotations:
+    ingress.kubernetes.io/ssl-redirect: 'false'
+spec:
+  rules:
+    - http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: nest-app-service
+                port:
+                  number: 80
+          - path: /asd
+            pathType: Prefix
+            backend:
+              service:
+                name: nest-app-2-service
+                port:
+                  number: 91

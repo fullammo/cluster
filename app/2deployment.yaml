@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nest-app-2-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: nest-app-2
+  template:
+    metadata:
+      labels:
+        app: nest-app-2
+    spec:
+      containers:
+        - name: nest-app-2-container
+          image: nginx
+          ports:
+            - containerPort: 91

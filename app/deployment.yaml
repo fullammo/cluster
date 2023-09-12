@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nest-app-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: nest-app
+  template:
+    metadata:
+      labels:
+        app: nest-app
+    spec:
+      containers:
+        - name: nest-app-container
+          image: nginx
+          ports:
+            - containerPort: 80
